@@ -1,342 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Isabela Araujo</title>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Isabela Araujo — ML Engineer & NLP Researcher</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #1a1a18; --muted: #6b6b62; --accent: #2d6a4f;
+      --accent-light: #e8f4f0; --border: #e0ddd6; --bg: #faf9f7;
+      --card: #ffffff; --tag-bg: #f0ede6; --tag-text: #4a4a40;
+      --brafitec: #1a3a5c; --brafitec-light: #e8f0f8;
+    }
+    body { font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.75; color: var(--ink); background: var(--bg); }
 
-  :root {
-    --ink: #1a1a18;
-    --muted: #6b6b62;
-    --accent: #2d6a4f;
-    --accent-light: #e8f4f0;
-    --border: #e0ddd6;
-    --bg: #faf9f7;
-    --card: #ffffff;
-    --tag-bg: #f0ede6;
-    --tag-text: #4a4a40;
-  }
+    nav { position: sticky; top: 0; background: rgba(250,249,247,0.93); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); z-index: 100; padding: 0 2rem; }
+    .nav-inner { max-width: 780px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .nav-brand { font-family: 'Lora', serif; font-size: 17px; font-weight: 600; color: var(--ink); text-decoration: none; }
+    .nav-links { display: flex; gap: 1.6rem; list-style: none; }
+    .nav-links a { font-size: 13.5px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a.brafitec-link { color: var(--brafitec); font-weight: 500; }
+    .nav-links a.brafitec-link:hover { color: #0f2540; }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 16px;
-    line-height: 1.75;
-    color: var(--ink);
-    background: var(--bg);
-  }
+    main { max-width: 780px; margin: 0 auto; padding: 0 2rem; }
 
-  /* NAV */
-  nav {
-    position: sticky;
-    top: 0;
-    background: rgba(250,249,247,0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
-    z-index: 100;
-    padding: 0 2rem;
-  }
-  .nav-inner {
-    max-width: 760px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 56px;
-  }
-  .nav-brand {
-    font-family: 'Lora', serif;
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--ink);
-    text-decoration: none;
-    letter-spacing: -0.2px;
-  }
-  .nav-links {
-    display: flex;
-    gap: 1.8rem;
-    list-style: none;
-  }
-  .nav-links a {
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--muted);
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--accent); }
+    .hero { padding: 5rem 0 3.5rem; display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: start; }
+    .hero-name { font-family: 'Lora', serif; font-size: 2.6rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.5px; margin-bottom: 0.5rem; }
+    .hero-title { font-size: 14px; color: var(--accent); font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 1.2rem; }
+    .hero-bio { font-size: 15.5px; color: #3a3a34; line-height: 1.85; max-width: 530px; }
+    .hero-bio p + p { margin-top: 1rem; }
+    .avatar-circle { width: 128px; height: 128px; border-radius: 50%; object-fit: cover; object-position: center 20%; border: 3px solid var(--border); }    .hero-links { display: flex; gap: 0.7rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .hero-link { font-size: 12.5px; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 5px; border: 1px solid var(--border); border-radius: 20px; padding: 5px 13px; background: var(--card); transition: all 0.2s; }
+    .hero-link:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+    .hero-link.linkedin { border-color: #c5b99a; color: #7a5c28; background: #fdf8f0; }
+    .hero-link.linkedin:hover { border-color: #8a6030; background: #f5ecd8; color: #5c3d0f; }
+    .hero-link svg { width: 13px; height: 13px; }
 
-  /* LAYOUT */
-  main {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0.5rem 0 3rem; }
+    section { padding-bottom: 3.5rem; }
+    .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; }
 
-  /* HERO */
-  .hero {
-    padding: 5rem 0 3.5rem;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 3rem;
-    align-items: start;
-  }
-  .hero-name {
-    font-family: 'Lora', serif;
-    font-size: 2.6rem;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.5px;
-    margin-bottom: 0.5rem;
-  }
-  .hero-title {
-    font-size: 15px;
+    .exp-item { display: grid; grid-template-columns: 110px 1fr; gap: 1.2rem; padding: 1.4rem 0; border-bottom: 1px solid var(--border); }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-date { font-size: 12px; color: var(--muted); padding-top: 3px; line-height: 1.6; }
+    .exp-role { font-weight: 500; font-size: 15px; margin-bottom: 2px; }
+    .exp-company { font-size: 13.5px; color: var(--accent); margin-bottom: 0.5rem; font-weight: 500; }
+    .exp-desc { font-size: 14px; color: #4a4a42; line-height: 1.75; }
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 0.65rem; }
+    .tag { font-size: 11px; background: var(--tag-bg); color: var(--tag-text); border-radius: 4px; padding: 2px 8px; font-weight: 500; }
+
+    .pub-item { padding: 1.3rem 0; border-bottom: 1px solid var(--border); }
+    .pub-item:last-child { border-bottom: none; }
+    .pub-venue { font-size: 11.5px; font-weight: 500; color: var(--accent); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 4px; }
+    .pub-title { font-family: 'Lora', serif; font-size: 15.5px; font-weight: 600; margin-bottom: 0.35rem; line-height: 1.4; }
+    .pub-authors { font-size: 13px; color: var(--muted); margin-bottom: 0.3rem; font-style: italic; }
+    .pub-desc { font-size: 13.5px; color: #4a4a42; line-height: 1.7; }
+    
+
+    .edu-item { display: grid; grid-template-columns: 110px 1fr; gap: 1.2rem; padding: 1.2rem 0; border-bottom: 1px solid var(--border); }
+    .edu-item:last-child { border-bottom: none; }
+    .edu-date { font-size: 12px; color: var(--muted); padding-top: 3px; }
+    .edu-degree { font-weight: 500; font-size: 15px; margin-bottom: 2px; }
+    .edu-school { font-size: 13.5px; color: var(--muted); }
+    .edu-note { font-size: 13px; color: var(--accent); margin-top: 4px; font-style: italic; }
+
+
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1.2rem; margin-bottom: 2.8rem; }
+    .skill-group h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 0.5rem; font-weight: 500; }
+    .skill-list { display: flex; flex-direction: column; gap: 4px; }
+    .skill-list span { font-size: 13.5px; color: var(--ink); }
+
+    .lang-row { display: flex; align-items: center; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--border); }
+    .lang-row:last-child { border-bottom: none; }
+    .lang-name { font-size: 14px; font-weight: 500; width: 90px; }
+    .lang-level { font-size: 13px; color: var(--muted); width: 140px; }
+    .lang-bar-wrap { flex: 1; height: 3px; background: var(--border); border-radius: 2px; }
+    .lang-bar { height: 3px; background: var(--accent); border-radius: 2px; }
+
+    .contact-block { background: var(--accent-light); border: 1px solid #b7dece; border-radius: 10px; padding: 1.8rem 2rem; }
+    .contact-block p { font-size: 15px; color: #2a5a42; margin-bottom: 1rem; }
+    .contact-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .contact-link { font-size: 14px; font-weight: 500; color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+    .contact-link:hover { border-color: var(--accent); }
+    .contact-link.lattes-contact { color: #7a5c28; }
+    .contact-link.lattes-contact:hover { border-color: #7a5c28; }
+
+    footer { max-width: 780px; margin: 0 auto; padding: 2rem 2rem 3rem; font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--border); }
+
+    @media (max-width: 600px) {
+      .hero { grid-template-columns: 1fr; gap: 1.5rem; }
+      .avatar-circle { order: -1; width: 88px; height: 88px; font-size: 1.8rem; }
+      .exp-item, .edu-item { grid-template-columns: 1fr; gap: 0.3rem; }
+      .brafitec-universities { grid-template-columns: 1fr; }
+      .hero-name { font-size: 2rem; }
+      nav { padding: 0 1rem; }
+      main { padding: 0 1.2rem; }
+      .nav-links { gap: 1rem; }
+    }
+
+    /* INTERNATIONAL EXPERIENCE */
+    .intl-topic { padding: 1.6rem 0; border-bottom: 1px solid var(--border); }
+    .intl-topic:last-child { border-bottom: none; }
+    .intl-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 0.9rem; flex-wrap: wrap; }
+    .intl-flag { font-size: 1.6rem; flex-shrink: 0; line-height: 1; margin-top: 2px; }
+    .intl-title { font-weight: 500; font-size: 15px; margin-bottom: 2px; }
+    .intl-sub { font-size: 13px; color: var(--accent); font-weight: 500; }
+    .intl-badge { margin-left: auto; font-size: 11px; background: var(--brafitec-light); color: var(--brafitec); border: 1px solid #b5cfe8; border-radius: 20px; padding: 3px 12px; font-weight: 500; white-space: nowrap; align-self: flex-start; }
+    .intl-body { font-size: 14px; color: #4a4a42; line-height: 1.75; margin-bottom: 0.8rem; }
+    .intl-body p { margin: 0; }
+    .intl-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    
+    .company-link {
+      color: inherit;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.2s ease;
+    }
+
+    .company-link:visited { 
+      color: inherit;
+    }
+
+    /* linha animada */
+    .company-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0%;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    /* hover */
+    .company-link:hover {
+      color: var(--accent);
+    }
+
+    .company-link:hover::after {
+      width: 100%;
+    }
+
+    .pub-link-btn {
     color: var(--accent);
-    font-weight: 500;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    margin-bottom: 1.2rem;
-  }
-  .hero-bio {
-    font-size: 16px;
-    color: #3a3a34;
-    line-height: 1.85;
-    max-width: 520px;
-  }
-  .hero-bio p + p { margin-top: 1rem; }
-  .avatar-wrap {
-    width: 130px;
-    flex-shrink: 0;
-  }
-  .avatar-circle {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #2d6a4f 0%, #40916c 60%, #74c69d 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Lora', serif;
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: white;
-    letter-spacing: -1px;
-    border: 3px solid var(--border);
-  }
-  .hero-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
-    flex-wrap: wrap;
-  }
-  .hero-link {
-    font-size: 13px;
-    color: var(--muted);
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 5px 14px;
-    background: var(--card);
-    transition: all 0.2s;
-  }
-  .hero-link:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: var(--accent-light);
-  }
-  .hero-link svg { width: 13px; height: 13px; }
-
-  /* DIVIDER */
-  .divider {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 0.5rem 0 3rem;
-  }
-
-  /* SECTION */
-  section { padding-bottom: 3.5rem; }
-  .section-label {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1.5rem;
-  }
-
-  /* EXPERIENCE ITEMS */
-  .exp-item {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: 1.2rem;
-    padding: 1.4rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .exp-item:last-child { border-bottom: none; }
-  .exp-date {
     font-size: 12.5px;
-    color: var(--muted);
-    padding-top: 2px;
-    line-height: 1.6;
-  }
-  .exp-role {
     font-weight: 500;
-    font-size: 15px;
-    margin-bottom: 2px;
-  }
-  .exp-company {
-    font-size: 14px;
-    color: var(--accent);
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-  }
-  .exp-desc {
-    font-size: 14.5px;
-    color: #4a4a42;
-    line-height: 1.75;
-  }
-  .exp-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 0.7rem;
-  }
-  .tag {
-    font-size: 11.5px;
-    background: var(--tag-bg);
-    color: var(--tag-text);
-    border-radius: 4px;
-    padding: 2px 9px;
-    font-weight: 500;
-  }
+    position: relative;
+    transition: color 0.2s ease;
+    }
 
-  /* RESEARCH */
-  .research-item {
-    padding: 1.4rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .research-item:last-child { border-bottom: none; }
-  .research-venue {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 4px;
-  }
-  .research-title {
-    font-family: 'Lora', serif;
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 0.4rem;
-    line-height: 1.4;
-  }
-  .research-desc {
-    font-size: 14.5px;
-    color: #4a4a42;
-    line-height: 1.7;
-  }
+    .pub-link-btn:visited {
+      color: var(--accent);
+    }
 
-  /* EDUCATION */
-  .edu-item {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: 1.2rem;
-    padding: 1.2rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .edu-item:last-child { border-bottom: none; }
-  .edu-date { font-size: 12.5px; color: var(--muted); padding-top: 2px; }
-  .edu-degree { font-weight: 500; font-size: 15px; margin-bottom: 2px; }
-  .edu-school { font-size: 14px; color: var(--muted); }
+    .pub-link-btn::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0%;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
 
-  /* SKILLS GRID */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-  }
-  .skill-group h4 {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-  }
-  .skill-list {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .skill-list span {
-    font-size: 14px;
-    color: var(--ink);
-  }
+    .pub-link-btn:hover::after {
+      width: 100%;
+    }
 
-  /* LANGS */
-  .lang-row {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.7rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .lang-row:last-child { border-bottom: none; }
-  .lang-name { font-size: 14.5px; font-weight: 500; width: 90px; }
-  .lang-level { font-size: 13.5px; color: var(--muted); }
-  .lang-bar-wrap { flex: 1; height: 3px; background: var(--border); border-radius: 2px; }
-  .lang-bar { height: 3px; background: var(--accent); border-radius: 2px; }
-
-  /* CONTACT */
-  .contact-block {
-    background: var(--accent-light);
-    border: 1px solid #b7dece;
-    border-radius: 10px;
-    padding: 1.8rem 2rem;
-  }
-  .contact-block p {
-    font-size: 15px;
-    color: #2a5a42;
-    margin-bottom: 1rem;
-  }
-  .contact-links { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .contact-link {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--accent);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s;
-  }
-  .contact-link:hover { border-color: var(--accent); }
-
-  footer {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 2rem 2rem 3rem;
-    font-size: 13px;
-    color: var(--muted);
-    border-top: 1px solid var(--border);
-  }
-
-  @media (max-width: 600px) {
-    .hero { grid-template-columns: 1fr; gap: 1.5rem; }
-    .avatar-wrap { order: -1; }
-    .avatar-circle { width: 90px; height: 90px; font-size: 1.8rem; }
-    .exp-item, .edu-item { grid-template-columns: 1fr; gap: 0.3rem; }
-    .exp-date, .edu-date { font-size: 12px; }
-    .hero-name { font-size: 2rem; }
-    nav { padding: 0 1rem; }
-    main { padding: 0 1.2rem; }
-  }
-</style>
+    .pub-link-btn:hover {
+      color: var(--accent);
+    }
+  </style>
 </head>
 <body>
 
@@ -345,8 +185,9 @@
     <a class="nav-brand" href="#">Isabela Araujo</a>
     <ul class="nav-links">
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Research</a></li>
       <li><a href="#education">Education</a></li>
+      <li><a href="#international" class="brafitec-link">International</a></li>
       <li><a href="#about">About</a></li>
     </ul>
   </div>
@@ -354,20 +195,20 @@
 
 <main>
 
-  <!-- HERO -->
   <section class="hero">
     <div>
-      <div class="hero-title">Machine Learning Engineer &amp; NLP Researcher</div>
+      <div class="hero-title">NLP Researcher · ML Engineer · Generative AI</div>
       <h1 class="hero-name">Isabela Araujo</h1>
       <div class="hero-bio">
         <p>
-          ML Engineer at Nubank and NLP Researcher at HAILab (PUCPR), with a Master's in Health Informatics.
-          I build and deploy AI systems at scale — from production ML pipelines to clinical NLP research.
+          I build and research AI systems that work in the real world. As an ML Engineer at <strong>Nubank</strong>,
+          I operationalize machine learning at scale across Brazil and Mexico. As a researcher at
+          <strong>HAILab (PUCPR)</strong>, I investigate how large language models can be applied to clinical NLP —
+          text normalization, abbreviation disambiguation, and term mapping in Portuguese.
         </p>
         <p>
-          My work sits at the intersection of <strong>generative AI</strong>, <strong>large language models</strong>,
-          and <strong>healthcare informatics</strong>. I'm especially drawn to clinical text normalization,
-          multilingual NLP, and making LLMs work reliably in real-world settings.
+          My focus: <strong>NLP, LLMs, and generative AI</strong> - especially in healthcare contexts
+          where language is messy, multilingual, and high-stakes.
         </p>
       </div>
       <div class="hero-links">
@@ -375,153 +216,108 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
           belaaj63@gmail.com
         </a>
-        <a class="hero-link" href="https://www.linkedin.com/in/isabelafaraujo" target="_blank">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <a class="hero-link linkedin" href="https://www.linkedin.com/in/isabelafaraujo" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           LinkedIn
         </a>
-        <a class="hero-link" href="tel:+5562981833382">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.89a16 16 0 0 0 5.5 5.5l.61-.61a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg>
-          +55 62 98183-3382
+        <a class="hero-link" href="https://www.instagram.com/isabela.araujo.ia/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg>
+          Instagram
         </a>
-        <a class="hero-link" href="#" onclick="alert('Goiânia, Goiás, Brazil')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Goiânia, Brazil
+        <a class="hero-link" href="https://x.com/araujoisabela19" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21l-6.49 7.42L22 22h-6.828l-5.35-7.01L3.9 22H1.14l6.94-7.94L2 2h6.9l4.84 6.4L18.244 2z"/></svg>          
+          Twitter / X 
+        </a>
+        <a class="hero-link" href="https://scholar.google.com/citations?user=_TCZYeYAAAAJ&hl=en" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 7l11 5 9-4.09V17h2V7L12 2z"/></svg>
+          Google Scholar
+        </a>
+        <a class="hero-link" href="http://lattes.cnpq.br/5237651464702183" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="7" y1="8" x2="11" y2="16"/><line x1="17" y1="8" x2="13" y2="16"/></svg>          
+          Lattes CV
+        </a>
+        <a class="hero-link" href="https://orcid.org/0000-0001-6368-9069" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          ORCID
         </a>
       </div>
     </div>
-    <div class="avatar-wrap">
-      <div class="avatar-circle">IA</div>
-    </div>
-  </section>
+    <img src="isabelafaraujo.jpeg" class="avatar-circle">  </section>
 
   <hr class="divider" />
 
-  <!-- EXPERIENCE -->
   <section id="experience">
     <div class="section-label">Experience</div>
 
     <div class="exp-item">
-      <div class="exp-date">Oct 2022 –<br>Present</div>
+      <div class="exp-date">Oct 2022 – Present</div>
       <div>
         <div class="exp-role">Machine Learning Engineer</div>
-        <div class="exp-company">Nubank · São Paulo, Brazil</div>
-        <div class="exp-desc">
-          Operationalizes ML and AI systems at scale: deployment pipelines, model monitoring,
-          governance integration, and DevOps workflows. Contributes to Data Science platformization
-          and authoring best practices for model lifecycle management in a global team.
-        </div>
+        <div class="exp-company">
+          <a href="https://international.nubank.com.br/about/" target="_blank" class="company-link">Nubank</a> · São Paulo, Brazil
+        </div>        
+        <div class="exp-desc">Operationalizes ML and AI systems at scale across Brazil and Mexico: deployment pipelines, model monitoring and parametrization, governance integration, and DevOps workflows. Contributes to Data Science platformization and maintains documentation and best practices for model lifecycle management in a global team.</div>
         <div class="exp-tags">
-          <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">PyTorch</span>
-          <span class="tag">LangChain</span><span class="tag">LLMs</span><span class="tag">Databricks</span>
-          <span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Generative AI</span>
+          <span class="tag">Python</span><span class="tag">LLMs</span><span class="tag">Generative AI</span>
+          <span class="tag">TensorFlow</span><span class="tag">PyTorch</span><span class="tag">LangChain</span>
+          <span class="tag">Databricks</span><span class="tag">Docker</span><span class="tag">Kubernetes</span>
         </div>
       </div>
     </div>
 
     <div class="exp-item">
-      <div class="exp-date">Nov 2023 –<br>Present</div>
+      <div class="exp-date">Nov 2023 – Present</div>
       <div>
         <div class="exp-role">NLP Researcher</div>
-        <div class="exp-company">HAILab-PUCPR · Paraná, Brazil</div>
-        <div class="exp-desc">
-          Research in clinical NLP: text normalization, codification, and term mapping.
-          Explores prompt engineering and LLMs (GPT, Llama, Gemini, Sabiá) applied to
-          healthcare contexts in interdisciplinary teams.
-        </div>
+        <div class="exp-company">
+          <a href="https://www.linkedin.com/company/hailab-pucpr/posts/?feedView=all" target="_blank" class="company-link">HAILab – PUCPR</a> · Paraná, Brazil
+        </div>        
+        <div class="exp-desc">Research in clinical NLP: abbreviation identification and disambiguation, text normalization, codification, and term mapping using standardized medical terminologies. Explores prompt engineering and LLMs - GPT, Llama, Gemini, and Sabiá (Portuguese model) - applied to real-world clinical narratives.</div>
         <div class="exp-tags">
-          <span class="tag">Clinical NLP</span><span class="tag">LLMs</span>
-          <span class="tag">Prompt Engineering</span><span class="tag">Hugging Face</span>
+          <span class="tag">Clinical NLP</span><span class="tag">LLMs</span><span class="tag">Prompt Engineering</span>
+          <span class="tag">Hugging Face</span><span class="tag">Portuguese NLP</span>
         </div>
       </div>
     </div>
 
     <div class="exp-item">
-      <div class="exp-date">Nov 2022 –<br>Aug 2023</div>
+      <div class="exp-date">Nov 2022 – Aug 2023</div>
       <div>
         <div class="exp-role">NLP Researcher</div>
-        <div class="exp-company">Comsentimento · São Paulo, Brazil</div>
-        <div class="exp-desc">
-          Few-shot and zero-shot learning on anonymized medical datasets. Built NLP pipelines
-          for text classification, entity recognition, and prompt-based tasks in clinical contexts.
-        </div>
+        <div class="exp-company">
+          <a href="https://www.linkedin.com/company/comsentimento/posts/?feedView=all" target="_blank" class="company-link">Comsentimento</a> · São Paulo, Brazil
+        </div>  
+        <div class="exp-desc">Few-shot and zero-shot learning on anonymized medical datasets. Built NLP pipelines for text classification, NER, and prompt-based tasks in clinical and sensitive data contexts, in partnership with HAILab/PUCPR.</div>
         <div class="exp-tags">
-          <span class="tag">Few-shot Learning</span><span class="tag">NER</span><span class="tag">Transformers</span>
+          <span class="tag">Few-shot Learning</span><span class="tag">Zero-shot</span><span class="tag">NER</span><span class="tag">Transformers</span>
         </div>
       </div>
     </div>
 
     <div class="exp-item">
-      <div class="exp-date">Jan 2022 –<br>Sep 2022</div>
+      <div class="exp-date">Jan 2022 – Sep 2022</div>
       <div>
         <div class="exp-role">NLP Engineer</div>
-        <div class="exp-company">Looqbox · São Paulo, Brazil</div>
-        <div class="exp-desc">
-          Developed parsing and language generation modules (ANTLR, Python, Java).
-          Built RESTful APIs with Flask and automated deployments via Jenkins and Docker.
+        <div class="exp-company">
+          <a href="https://looqbox.com/" target="_blank" class="company-link">Looqbox</a> · São Paulo, Brazil
         </div>
+        <div class="exp-desc">Developed natural language parsing and generation modules for a BI analytics tool. Built parsers using ANTLR and Python, RESTful APIs with Flask, and automated deployments via Jenkins and Docker.</div>
         <div class="exp-tags">
-          <span class="tag">ANTLR</span><span class="tag">Flask</span><span class="tag">Docker</span><span class="tag">Jenkins</span>
+          <span class="tag">NLP</span><span class="tag">ANTLR</span><span class="tag">Python</span><span class="tag">Flask</span>
         </div>
       </div>
     </div>
 
     <div class="exp-item">
-      <div class="exp-date">Apr 2020 –<br>Apr 2022</div>
+      <div class="exp-date">Apr 2020 – Apr 2022</div>
       <div>
         <div class="exp-role">NLP Researcher</div>
-        <div class="exp-company">CEIA – Centro de Excelência em IA · Goiânia, Brazil</div>
-        <div class="exp-desc">
-          Designed NLP pipelines for Portuguese-language tasks: spell checkers, NER, POS tagging.
-          Built chatbots and ML models for healthcare and education datasets using TensorFlow and spaCy.
+        <div class="exp-company">
+          <a href="https://ceia.ufg.br/" target="_blank" class="company-link">CEIA – Centro de Excelência em IA</a> · Goiânia, Brazil
         </div>
+        <div class="exp-desc">Designed NLP pipelines for Portuguese: spell checkers, named entity recognition (NER), POS tagging, and chatbots. Applied TensorFlow, spaCy, and scikit-learn to healthcare and education datasets.</div>
         <div class="exp-tags">
-          <span class="tag">NER</span><span class="tag">spaCy</span><span class="tag">TensorFlow</span>
-          <span class="tag">Portuguese NLP</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-date">Feb 2020 –<br>Dec 2020</div>
-      <div>
-        <div class="exp-role">Data Science Lead</div>
-        <div class="exp-company">IDflow · São Paulo, Brazil</div>
-        <div class="exp-desc">
-          Led the Data Science team; designed automated ETL pipelines and analytical dashboards (Power BI, Python).
-          Applied ML and deep learning to optimize analytical models across business areas.
-        </div>
-        <div class="exp-tags">
-          <span class="tag">Machine Learning</span><span class="tag">Power BI</span><span class="tag">FastAPI</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-date">May 2019 –<br>Aug 2019</div>
-      <div>
-        <div class="exp-role">Researcher &amp; Data Analyst</div>
-        <div class="exp-company">Johannes Gutenberg University · Mainz, Germany</div>
-        <div class="exp-desc">
-          Research at the Psychology Institute on pedestrian interactions with electric and conventional vehicles.
-          Collected and processed behavioral data using MATLAB and audio/video recording tools.
-        </div>
-        <div class="exp-tags">
-          <span class="tag">MATLAB</span><span class="tag">Behavioral Research</span><span class="tag">Data Visualization</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-date">Sep 2018 –<br>May 2019</div>
-      <div>
-        <div class="exp-role">Projet Ingénieur (Undergraduate Thesis)</div>
-        <div class="exp-company">HiPEAC / Télécom Physique Strasbourg · Strasbourg, France</div>
-        <div class="exp-desc">
-          Collaborative project with PROTiP Medical focused on 3D-printed prosthetic implants.
-          Improved production processes via 3D modeling, CAD, and Python-based automation.
-        </div>
-        <div class="exp-tags">
-          <span class="tag">Python</span><span class="tag">CAD</span><span class="tag">3D Modeling</span>
+          <span class="tag">NER</span><span class="tag">spaCy</span><span class="tag">TensorFlow</span><span class="tag">Portuguese NLP</span>
         </div>
       </div>
     </div>
@@ -530,82 +326,89 @@
 
   <hr class="divider" />
 
-  <!-- RESEARCH -->
-  <section id="research">
+  <section id="publications">
     <div class="section-label">Research &amp; Publications</div>
 
-    <div class="research-item">
-      <div class="research-venue">IEEE CBMS 2025</div>
-      <div class="research-title">Clinical NLP with Large Language Models</div>
-      <div class="research-desc">
-        Certificate of Participation — IEEE 38th Computer Based Medical Systems (CBMS 2025).
-        Work at HAILab on clinical text normalization and codification using GPT, Gemini, Llama, and Sabiá.
-      </div>
+    <div class="pub-item">
+  	  <div class="pub-venue">PROPOR 2026 · Conference Paper</div>
+      <div class="pub-title">NormaTex-MapSNOMED: Bridging the Gap Between Brazilian Portuguese Clinical Narratives and SNOMED CT</div>
+      <div class="pub-authors">Araujo, I.; Moro, C.; Martinez, L.</div>
+      <div class="pub-desc">Proceedings of the 17th International Conference on Computational Processing of Portuguese (PROPOR 2026), Salvador, Brazil. pp. 1085–1091. Proposes a method for mapping clinical terms in Brazilian Portuguese to SNOMED CT using large language models, combining lexical, contextual, and semantic evaluation strategies.</div>
+      <div class="pub-links"><a href="https://aclanthology.org/2026.propor-1.115/" target="_blank" class="pub-link-btn">View Paper</a></div>
     </div>
 
-    <div class="research-item">
-      <div class="research-venue">CBIS 2024</div>
-      <div class="research-title">AI Applications in Brazilian Health Informatics</div>
-      <div class="research-desc">
-        Certificate of Participation — XX Congresso Brasileiro de Informática em Saúde (CBIS24).
-        Research on NLP pipelines for clinical data in Portuguese.
-      </div>
+    <div class="pub-item">
+      <div class="pub-venue">IEEE CBMS 2025 · Conference Paper</div>
+      <div class="pub-title">Abbreviation Identification and Disambiguation in Real-World Clinical Narratives</div>
+      <div class="pub-authors">Joaquim, J. P.; Fontes de Araújo, I.; Moro, C.</div>
+      <div class="pub-desc">2025 IEEE 38th International Symposium on Computer-Based Medical Systems (CBMS), Madrid. pp. 21–24. Addresses the challenge of clinical abbreviations in Portuguese medical text using LLMs.</div>
+      <div class="pub-links"><a href="https://ieeexplore.ieee.org/document/11058584" target="_blank" class="pub-link-btn">View Paper</a></div>
     </div>
 
-    <div class="research-item">
-      <div class="research-venue">SNA — Neuromecânica Aplicada</div>
-      <div class="research-title">Simpósio em Neuromecânica Aplicada</div>
-      <div class="research-desc">
-        Certificate of Participation — interdisciplinary work connecting AI and applied neuromechanics research.
-      </div>
+    <div class="pub-item">
+      <div class="pub-venue">CBIS 2024 · Conference Paper</div>
+      <div class="pub-title">Avaliação de Grandes Modelos de Linguagem na Extração de Informações Clínicas</div>
+      <div class="pub-authors">Mello, C. E. R.; Schneider, E. T. R.; Silva e Oliveira, L. E.; do Nascimento, J. N.; Gumie, Y. B.; Araújo, I. F.; Moro, C.</div>
+      <div class="pub-desc">XX Congresso Brasileiro de Informática em Saúde, Belo Horizonte, 2024. v. 16. Evaluates LLM performance on clinical information extraction in Brazilian Portuguese.</div>
+      <div class="pub-links"><a href="https://jhi.sbis.org.br/index.php/jhi-sbis/article/view/1306" target="_blank" class="pub-link-btn">View Paper</a></div>
     </div>
 
-    <div class="research-item">
-      <div class="research-venue">Interests</div>
-      <div class="research-title">Research Focus Areas</div>
-      <div class="research-desc">
-        Generative AI · Clinical text normalization · Multilingual NLP (Portuguese &amp; English) ·
-        LLM alignment for healthcare · Information extraction from biomedical corpora ·
-        Prompt engineering for low-resource settings.
-      </div>
+    <div class="pub-item">
+      <div class="pub-venue">Research Focus</div>
+      <div class="pub-title">Current Interests</div>
+      <div class="pub-desc">Clinical text normalization · Abbreviation disambiguation · LLM evaluation for healthcare · Multilingual NLP (Portuguese/English) · Prompt engineering for low-resource settings · Information extraction from biomedical corpora.</div>
     </div>
+
   </section>
+
 
   <hr class="divider" />
 
-  <!-- EDUCATION -->
   <section id="education">
     <div class="section-label">Education</div>
 
     <div class="edu-item">
       <div class="edu-date">2023 – 2026</div>
       <div>
-        <div class="edu-degree">Master's in Natural Language Processing</div>
-        <div class="edu-school">Pontifícia Universidade Católica do Paraná (PUCPR)</div>
+        <div class="edu-degree">Master's - Natural Language Processing</div>
+        <div class="edu-school">
+          <a href="https://www.pucpr.br/" target="_blank" class="company-link">
+            Pontifícia Universidade Católica do Paraná (PUCPR)
+          </a>
+        </div>
+        <div class="edu-school">
+          <a href="https://www.pucpr.br/escola-politecnica/mestrado-doutorado/tecnologia-em-saude/" target="_blank" class="company-link">
+            PPGTS - Programa de Pós-Graduação em Tecnologia em Saúde
+          </a>
+        </div>
       </div>
     </div>
 
     <div class="edu-item">
       <div class="edu-date">2022 – 2023</div>
       <div>
-        <div class="edu-degree">Postgraduate in Data Science</div>
-        <div class="edu-school">Universidade Anhembi Morumbi</div>
-      </div>
-    </div>
-
-    <div class="edu-item">
-      <div class="edu-date">2022</div>
-      <div>
-        <div class="edu-degree">Associate's — Innovation Project Management</div>
-        <div class="edu-school">I2A2 – Institut d'Intelligence Artificielle Appliquée</div>
+        <div class="edu-degree">Postgraduate - Data Science</div>
+        <div class="edu-school">
+          <a href="https://portal.anhembi.br/" target="_blank" class="company-link">
+            Universidade Anhembi Morumbi
+          </a>
       </div>
     </div>
 
     <div class="edu-item">
       <div class="edu-date">2018 – 2019</div>
       <div>
-        <div class="edu-degree">Engineering Program — Information Technologies for Health</div>
-        <div class="edu-school">Université de Strasbourg, France</div>
+        <div class="edu-degree">Technologies de l'Information pour la Santé</div>
+        <div class="edu-school">
+          <a href="https://www.telecom-physique.fr/" target="_blank" class="company-link">
+            Télécom Physique Strasbourg · Université de Strasbourg, France
+          </a>
+      </div>
+      <div class="edu-school">
+          <a href="https://www.gov.br/capes/pt-br/acesso-a-informacao/acoes-e-programas/bolsas/bolsas-e-auxilios-internacionais/encontre-aqui/paises/franca/programa-capes-brafitec" target="_blank" class="company-link">
+            BRAFITEC Exchange - CAPES scholarship
+          </a>
+      </div>
       </div>
     </div>
 
@@ -613,44 +416,141 @@
       <div class="edu-date">2014 – 2019</div>
       <div>
         <div class="edu-degree">Bachelor of Engineering — Computer Engineering</div>
-        <div class="edu-school">Universidade Federal de Goiás (UFG)</div>
+        <div class="edu-school">
+          <a href="https://www.ufg.br/" target="_blank" class="company-link">
+            Universidade Federal de Goiás (UFG)
+          </a>
+      </div>
       </div>
     </div>
+
   </section>
 
   <hr class="divider" />
 
-  <!-- ABOUT -->
+  <section id="international">
+    <div class="section-label">International Experience</div>
+
+    <!-- BRAFITEC -->
+    <div class="intl-topic">
+      <div class="intl-header">
+        <span class="intl-flag">🇫🇷</span>
+        <div>
+          <div class="intl-title">
+          <a href="https://www.gov.br/capes/pt-br/acesso-a-informacao/acoes-e-programas/bolsas/bolsas-e-auxilios-internacionais/encontre-aqui/paises/franca/programa-capes-brafitec" target="_blank" class="company-link">
+            BRAFITEC
+          </a>  
+            — Brazil–France Engineering Exchange
+        </div>
+        <div class="intl-sub">
+          <a href="https://www.telecom-physique.fr/" target="_blank" class="company-link">
+            Télécom Physique Strasbourg
+          </a> · Strasbourg, France · Sep 2018–May 2019
+        </div>          
+        <span class="intl-badge">CAPES Scholarship</span>
+      </div>
+      <div class="intl-body">
+        <p>Selected as a BRAFITEC (Brasil–France Ingénieurs Technologie) scholar — a CAPES-funded program that places Brazilian engineering students in French Grandes Écoles for a full academic year with dual credit. I studied in the <em>Technologies de l'Information pour la Santé</em> track, covering medical image processing, signal processing, computer vision, biomechanics, human–machine interface, optimization algorithms, and advanced statistics.</p>
+      </div>
+      <div class="intl-tags">
+        <span class="tag">Exchange Program</span><span class="tag">Health Informatics</span>
+        <span class="tag">Medical Image Processing</span><span class="tag">Signal Processing</span>
+        <span class="tag">Computer Vision</span><span class="tag">CAPES</span>
+      </div>
+    </div>
+
+    <!-- Johannes Gutenberg -->
+    <div class="intl-topic">
+      <div class="intl-header">
+        <span class="intl-flag">🇩🇪</span>
+        <div>
+          <div class="intl-title">
+          Research Internship — 
+          <a href="https://www.psychologie.uni-mainz.de/welcome/" target="_blank" class="company-link">
+            Psychology Institute
+          </a>
+        </div>
+
+          <div class="intl-sub">
+            <a href="https://www.uni-mainz.de/" target="_blank" class="company-link">
+              Johannes Gutenberg University Mainz
+            </a> · Germany · May – Aug 2019
+          </div>
+        </div>
+        <span class="intl-badge">Research Intern</span>
+      </div>
+      <div class="intl-body">
+        <p>Worked at the Experimental Psychology Laboratory studying pedestrian behavior in traffic scenarios involving electric and conventional vehicles. Collected and processed behavioral data using MATLAB and audio/video recording equipment. Contributed to experimental design, quantitative data analysis, and visualization for human–vehicle interaction research.</p>
+      </div>
+      <div class="intl-tags">
+        <span class="tag">MATLAB</span><span class="tag">Behavioral Research</span>
+        <span class="tag">Human–Vehicle Interaction</span><span class="tag">Data Analysis</span>
+        <span class="tag">Experimental Design</span>
+      </div>
+    </div>
+
+    <!-- PROTiP Medical -->
+    <div class="intl-topic">
+      <div class="intl-header">
+        <span class="intl-flag">🇫🇷</span>
+        <div class="intl-title">
+          Projet Ingénieur — 
+          <a href="https://protip-medical.com/" target="_blank" class="company-link">
+            PROTiP Medical
+          </a> (HiPEAC)
+        </div>
+        <div class="intl-sub">
+          <a href="https://www.telecom-physique.fr/" target="_blank" class="company-link">
+            Télécom Physique Strasbourg
+          </a> · Strasbourg, France · Sep 2018–May 2019
+        </div>
+        <span class="intl-badge">Undergraduate Thesis</span>
+      </div>
+      <div class="intl-body">
+        <p>Undergraduate thesis project in collaboration with PROTiP Medical through the HiPEAC research network, focused on patient-specific 3D-printed prosthetic implants. Developed a Python-based automation pipeline to streamline implant sizing from medical imaging data, integrating CAD software and 3D modeling to reduce manual steps in the production of personalized orthopedic devices.</p>
+      </div>
+      <div class="intl-tags">
+        <span class="tag">Python</span><span class="tag">CAD</span><span class="tag">3D Modeling</span>
+        <span class="tag">Medical Devices</span><span class="tag">HiPEAC</span><span class="tag">Automation</span>
+      </div>
+    </div>
+
+  </section>
+
+  <hr class="divider" />
+
   <section id="about">
     <div class="section-label">Skills &amp; Languages</div>
 
-    <div class="skills-grid" style="margin-bottom: 2.5rem;">
+    <div class="skills-grid">
       <div class="skill-group">
-        <h4>Core</h4>
+        <h4>NLP &amp; AI</h4>
         <div class="skill-list">
-          <span>Python</span><span>Machine Learning</span><span>NLP / LLMs</span>
-          <span>Prompt Engineering</span><span>Generative AI</span>
+          <span>Large Language Models</span>
+          <span>Prompt Engineering</span>
+          <span>NER &amp; Text Classification</span>
+          <span>Clinical NLP</span>
+          <span>Few/Zero-shot Learning</span>
         </div>
       </div>
       <div class="skill-group">
-        <h4>Frameworks</h4>
+        <h4>ML Engineering</h4>
         <div class="skill-list">
-          <span>TensorFlow · PyTorch</span><span>LangChain</span>
-          <span>Hugging Face Transformers</span><span>spaCy · scikit-learn</span>
+          <span>Python</span>
+          <span>TensorFlow · PyTorch</span>
+          <span>LangChain</span>
+          <span>Hugging Face Transformers</span>
+          <span>spaCy · scikit-learn</span>
         </div>
       </div>
       <div class="skill-group">
         <h4>Infrastructure</h4>
         <div class="skill-list">
-          <span>Docker · Kubernetes</span><span>Databricks</span>
-          <span>Flask · FastAPI</span><span>SQL · Power BI</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h4>Research</h4>
-        <div class="skill-list">
-          <span>Clinical NLP</span><span>Health Informatics</span>
-          <span>Few-shot Learning</span><span>NER · Text Classification</span>
+          <span>Docker · Kubernetes</span>
+          <span>Databricks</span>
+          <span>Flask · FastAPI</span>
+          <span>SQL</span>
+          <span>MLOps / DevOps</span>
         </div>
       </div>
     </div>
@@ -686,14 +586,15 @@
 
   <hr class="divider" />
 
-  <!-- CONTACT -->
   <section>
     <div class="section-label">Get in Touch</div>
     <div class="contact-block">
-      <p>I'm open to research collaborations, interesting ML problems, and conversations about AI in healthcare. Feel free to reach out.</p>
+      <p>I'm open to research collaborations on NLP and clinical AI, interesting ML engineering challenges, and conversations about LLMs in healthcare. Feel free to reach out.</p>
       <div class="contact-links">
         <a class="contact-link" href="mailto:belaaj63@gmail.com">belaaj63@gmail.com</a>
         <a class="contact-link" href="https://www.linkedin.com/in/isabelafaraujo" target="_blank">LinkedIn</a>
+        <a class="contact-link lattes-contact" href="http://lattes.cnpq.br/5237651464702183" target="_blank">Lattes CV</a>
+        <a class="contact-link" href="https://orcid.org/0000-0001-6368-9069" target="_blank">ORCID</a>
       </div>
     </div>
   </section>
@@ -701,7 +602,7 @@
 </main>
 
 <footer>
-  <p>Isabela Araujo · Goiânia, Brazil · Built with HTML &amp; CSS</p>
+  <p>Isabela Araujo · Goiânia, Brazil · <a href="http://lattes.cnpq.br/5237651464702183" style="color: inherit;" target="_blank">Lattes: 5237651464702183</a> · Built with HTML &amp; CSS</p>
 </footer>
 
 </body>
